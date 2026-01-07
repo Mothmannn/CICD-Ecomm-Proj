@@ -1,10 +1,9 @@
 // src/__tests__/LoginPage.test.tsx
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { vi } from "vitest";
 import Login from "../components/Login";
 
-vi.mock("../auth/useAuth", () => ({
+jest.mock("../auth/useAuth", () => ({
   useAuth: () => ({
     user: null,
     loading: false,
