@@ -1,258 +1,147 @@
-# React + TypeScript + Vite
+🛒 E‑Commerce Application with CI/CD, TDD, and Vercel Deployment
+A fully featured React + TypeScript e‑commerce application built with modern tooling, complete with automated testing, continuous integration, and continuous deployment. This project demonstrates professional‑grade development practices including Test‑Driven Development (TDD), GitHub Actions CI/CD, Redux state management, Firebase authentication, and Vercel hosting.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Application
+👉 https://cicd-ecomm-proj.vercel.app/product-editor
 
-Currently, two official plugins are available:
+📦 Features
+Frontend
+React + TypeScript
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Router for client‑side routing
 
-## React Compiler
+Redux Toolkit for global state management
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Firebase Authentication
 
-## Expanding the ESLint configuration
+Fully responsive UI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Product management (CRUD)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Shopping cart with persistent state
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Order history and order details pages
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Testing
+Jest + React Testing Library
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Unit tests for key components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Integration test for cart state updates
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-📦 E‑Commerce App with Firebase Integration
-A full‑stack e‑commerce application built with React, TypeScript, and Firebase, featuring user authentication, product management, and order handling. This project replaces the previous FakeStore API with Firestore and implements complete CRUD operations for users, products, and orders.
+Mocked Firebase and session storage for deterministic tests
 
-🚀 Features Overview
-✅ Firebase Authentication
-User registration (email/password)
+CI/CD Pipeline
+GitHub Actions workflow triggered on every push to main
 
-Login & logout
+Automated:
 
-User document creation in Firestore
+Install
 
-Secure access to user‑specific data
+Build
 
-✅ User Management (Firestore CRUD)
-Create: Add user profile on registration
+Run Jest test suite
 
-Read: Display user profile information
+Deploy to Vercel (only if tests pass)
 
-Update: Edit profile fields (e.g., name, address)
+Ensures no faulty code reaches production
 
-Delete: Remove user account + Firestore data
+🧪 Test‑Driven Development (TDD)
+This project includes both unit tests and integration tests to validate component behavior and application logic.
 
-✅ Product Management (Firestore CRUD)
-Replace FakeStore API with Firestore
+✔ Unit Tests
+Login component
 
-Fetch all products from Firestore
+NavBar component
 
-Create new products
+Tests cover:
 
-Update existing products
+Rendering
 
-Delete products
+User interaction
 
-Admin‑style product editor
+Component state behavior
 
-✅ Order Management
-Create orders from cart contents
+✔ Integration Test
+Cart integration test ensures:
 
-Store full order details in Firestore
+Adding a product updates Redux state
 
-Order history page
+Quantity increments correctly
 
-View individual order details
+State remains deterministic and isolated
 
-Display order date, total price, and product list
+⚙️ CI/CD Pipeline (GitHub Actions → Vercel)
+Continuous Integration
+Runs on every push to main
 
-🛠️ Tech Stack
-Category	Tools
-Frontend	React, TypeScript, React Router
-Backend	Firebase Authentication, Firestore
-Styling	CSS / Bootstrap
-State	React Hooks
-📁 Project Structure
+Executes:
+
+npm install
+
+npm run build
+
+npm test
+
+Workflow fails immediately if any test fails
+
+Continuous Deployment
+Deployment job runs only if CI succeeds
+
+Uses Vercel CLI + project token
+
+Automatically deploys the latest passing build to production
+
+🗂️ Project Structure
 Code
 src/
- ├── components/
- │    ├── HomePage.tsx
- │    ├── ProductDetails.tsx
- │    ├── ProductEditor.tsx
- │    ├── Cart.tsx
- │    ├── Login.tsx
- │    ├── Register.tsx
- │    ├── ProfilePage.tsx
- │    ├── OrderHistory.tsx
- │    └── OrderDetails.tsx
- ├── firebase/
- │    └── firebase.ts
- ├── models/
- │    ├── Product.model.ts
- │    └── Order.model.ts
- ├── css/
- └── App.tsx
-📚 Assignment Instructions
-Below is the full breakdown of the assignment requirements implemented in this project.
-
-🔥 Part 1: Firebase Setup
-1. Create a Firebase Project
-Go to Firebase Console
-
-Create a new project
-
-Add a Web App
-
-Install Firebase SDK in your React project
-
-2. Enable Services
-Authentication → Email/Password
-
-Firestore Database → Start in test mode (or secure rules later)
-
-3. Configure Firebase
-Add your Firebase config to firebase.ts and initialize:
-
-ts
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
-
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const auth = getAuth(app);
-🔐 Part 2: Firebase Authentication
-✔ User Registration
-Register with email/password
-
-Create a Firestore user document in users/
-
-✔ Login & Logout
-Authenticate with Firebase Auth
-
-Logout button clears session
-
-👤 Part 3: User Management (Firestore CRUD)
-✔ Create
-Add user document on registration.
-
-✔ Read
-Fetch user profile to display in ProfilePage.
-
-✔ Update
-Allow editing profile fields.
-
-✔ Delete
-Remove user account + Firestore data.
-
-🛒 Part 4: Product Management
-✔ Replace FakeStore API
-All products now come from Firestore.
-
-✔ CRUD Operations
-Fetch all products
-
-Create new product
-
-Update product
-
-Delete product
-
-Products are stored in:
-
-Code
-products/
-   productId/
-      title
-      price
-      description
-      image
-      category
-📦 Part 5: Order Management
-✔ Create Orders
-When a user checks out, save:
-
-ts
-{
-  userId,
-  products: [...],
-  total_price,
-  order_date: Timestamp.now()
-}
-✔ Order History
-Users can view:
-
-Order ID
-
-Date
-
-Total price
-
-✔ Order Details
-Clicking an order shows:
-
-All products
-
-Quantities
-
-Prices
-
-Order metadata
-
-▶️ Running the Project
-Install dependencies
-Code
+  components/
+  redux/
+  auth/
+  __tests__/
+  testUtils.tsx
+.github/
+  workflows/
+    main.yml
+public/
+README.md
+🛠️ Technologies Used
+Category	Tools
+Frontend	React, TypeScript, React Router
+State Management	Redux Toolkit
+Backend Services	Firebase Auth, Firestore
+Testing	Jest, React Testing Library
+CI/CD	GitHub Actions
+Deployment	Vercel
+Build Tools	Vite
+▶️ Running the Project Locally
+bash
 npm install
-Start development server
-Code
 npm run dev
+▶️ Running Tests
+bash
+npm test
+🌐 Deployment
+This project is deployed on Vercel using an automated GitHub Actions workflow.
+Every push to main triggers:
+
+Install dependencies
+
+Build the project
+
+Run Jest tests
+
+Deploy to Vercel (only if all tests pass)
+
+🎓 Summary
+This project demonstrates:
+
+Professional CI/CD workflow
+
+Real TDD practices
+
+Clean, maintainable React + TypeScript architecture
+
+Automated deployment to Vercel
+
+Reliable test coverage for critical features
