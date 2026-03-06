@@ -4,25 +4,57 @@ A fully featured React + TypeScript e‑commerce application built with modern t
 🚀 Live Application
 👉 https://cicd-ecomm-proj.vercel.app/product-editor
 
-📦 Features
+# CI/CD E-Commerce App
+
+A full-stack style e-commerce application built with React, TypeScript, and Redux that demonstrates automated CI/CD workflows using GitHub Actions.
+
+## Features
+
+- Dynamic product management using FakeStore API
+- Client-side routing with React Router
+- Centralized state management using Redux
+- Automated CI pipeline with GitHub Actions
+- Modular component architecture
+
+## Tech Stack
+
 Frontend
-React + TypeScript
+- React
+- TypeScript
+- Redux
+- Bootstrap
 
-React Router for client‑side routing
+DevOps
+- GitHub Actions
+- Git
+- CI/CD workflow automation
 
-Redux Toolkit for global state management
+## CI/CD Pipeline
 
-Firebase Authentication
+The GitHub Actions workflow automatically:
 
-Fully responsive UI
+1. Installs dependencies
+2. Builds the application
+3. Runs linting checks
+4. Verifies successful build before merge
 
-Product management (CRUD)
+This ensures code quality and prevents broken code from entering the main branch.
 
-Shopping cart with persistent state
+## Installation
 
-Order history and order details pages
+Clone the repository:
 
-Testing
+git clone https://github.com/Mothmannn/CICD-Ecomm-Proj
+
+Install dependencies:
+
+npm install
+
+Start development server:
+
+npm run dev
+
+**Testing**
 Jest + React Testing Library
 
 Unit tests for key components
@@ -31,20 +63,19 @@ Integration test for cart state updates
 
 Mocked Firebase and session storage for deterministic tests
 
-CI/CD Pipeline
-GitHub Actions workflow triggered on every push to main
+## GitHub Actions Workflow
 
-Automated:
+The project uses GitHub Actions to automate the CI pipeline.
 
-Install
+Workflow triggers:
+- push to main branch
+- pull requests
 
-Build
-
-Run Jest test suite
-
-Deploy to Vercel (only if tests pass)
-
-Ensures no faulty code reaches production
+Pipeline steps:
+1. Checkout repository
+2. Install dependencies
+3. Build application
+4. Run validation checks
 
 🧪 Test‑Driven Development (TDD)
 This project includes both unit tests and integration tests to validate component behavior and application logic.
@@ -105,15 +136,16 @@ src/
     main.yml
 public/
 README.md
+
 🛠️ Technologies Used
-Category	Tools
-Frontend	React, TypeScript, React Router
-State Management	Redux Toolkit
-Backend Services	Firebase Auth, Firestore
-Testing	Jest, React Testing Library
-CI/CD	GitHub Actions
-Deployment	Vercel
-Build Tools	Vite
+Frontend - React, TypeScript, React Router
+State Management -	Redux Toolkit
+Backend Services -	Firebase Auth, Firestore
+Testing	- Jest, React Testing Library
+CI/CD -	GitHub Actions
+Deployment - Vercel
+Build - Tools	Vite
+
 ▶️ Running the Project Locally
 bash
 npm install
@@ -121,6 +153,7 @@ npm run dev
 ▶️ Running Tests
 bash
 npm test
+
 🌐 Deployment
 This project is deployed on Vercel using an automated GitHub Actions workflow.
 Every push to main triggers:
